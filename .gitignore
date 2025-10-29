@@ -1,0 +1,132 @@
+# ==================== Python 虛擬環境 ====================
+venv/
+venv1/
+env/
+ENV/
+.venv
+
+# ==================== Python 快取文件 ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ==================== 環境配置文件 ====================
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ==================== IDE 和編輯器 ====================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+.vim
+.emacs
+*.swn
+.netrwhist
+
+# ==================== 日誌和臨時文件 ====================
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ==================== 項目特定文件 ====================
+# 數據文件
+data/
+output/
+results/
+*.json
+*.csv
+*.xlsx
+*.xls
+
+# 加密密鑰和敏感信息
+*.pem
+*.key
+*.pub
+private_key
+secret_*
+
+# ==================== 操作系統文件 ====================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ==================== Node.js (如果使用) ====================
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ==================== 依賴管理工具 ====================
+.poetry/
+poetry.lock
+Pipfile.lock
+
+# ==================== 測試覆蓋報告 ====================
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+
+# ==================== Jupyter Notebook ====================
+.ipynb_checkpoints
+*.ipynb
+
+# ==================== pytest 快取 ====================
+.pytest_cache/
+
+# ==================== mypy ====================
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ==================== PEP 582 ====================
+__pypackages__/
+
+# ==================== Celery 任務隊列 ====================
+celerybeat-schedule
+celerybeat.pid
+
+# ==================== 資料庫文件 ====================
+*.db
+*.sqlite
+*.sqlite3
