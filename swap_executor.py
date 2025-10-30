@@ -24,6 +24,24 @@ def log_debug(msg: str):
     else:
         logger.debug(msg)
 
+def get_raw_transaction(signed_tx):
+    """
+    兼容不同版本的 web3.py
+    - web3.py v5.x: signed_tx.rawTransaction
+    - web3.py v6.x: signed_tx.raw 或 signed_tx[0]
+    """
+    # 嘗試 .raw 屬性（web3.py v6.x）
+    if hasattr(signed_tx, 'raw'):
+        return signed_tx.raw
+    # 嘗試 .rawTransaction 屬性（web3.py v5.x）
+    elif hasattr(signed_tx, 'rawTransaction'):
+        return signed_tx.rawTransaction
+    # 嘗試索引方式（元組形式）
+    elif isinstance(signed_tx, tuple) and len(signed_tx) > 0:
+        return signed_tx[0]
+    else:
+        raise AttributeError(f"無法從 SignedTransaction 對象獲取原始交易數據")
+
 load_dotenv()
 
 class SwapExecutor:
@@ -195,7 +213,7 @@ class SwapExecutor:
             })
             
             signed_tx = self.w3.eth.account.sign_transaction(tx, self.private_key)
-            tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+            tx_hash = self.w3.eth.send_raw_transaction(get_raw_transaction(signed_tx))
             logger.info(f"   ✅ 授權交易已發送: {tx_hash.hex()}")
             
             receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash, timeout=60)
@@ -271,7 +289,7 @@ class SwapExecutor:
             
             # 6. 發送交易
             log_debug(f"📤 發送交易...")
-            tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+            tx_hash = self.w3.eth.send_raw_transaction(get_raw_transaction(signed_tx))
             logger.info(f"🔄 開始執行交換")
             logger.info(f"   ✅ 交易已發送: {tx_hash.hex()}")
             

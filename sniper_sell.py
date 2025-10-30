@@ -29,7 +29,7 @@ TARGET_TOKEN = "0x2e622c04698e0970e7fb713a89f40a71fdcd1abc"  # 👈 改為你要
 
 # ==================== ⚙️ 狙擊策略配置（根據需要調整）====================
 # 最小流動性要求 (USD)
-MIN_LIQUIDITY_USD = 100
+MIN_LIQUIDITY_USD = 1000
 
 # 流動性增長倍數（初始流動性 × 此倍數 才會觸發賣出）
 # 例如：初始 $1000 → 需要增長到 $1500 (1.5倍) 才賣出
@@ -39,7 +39,7 @@ MIN_LIQUIDITY_USD = 100
 #   - 1.5 = 平衡方案 🟡 推薦
 #   - 2.0 = 保守方案 🟢 低風險
 #   - 3.0 = 超保守 🟢🟢 極低風險
-LIQUIDITY_GROWTH_THRESHOLD = 30
+LIQUIDITY_GROWTH_THRESHOLD = 1.0
 
 # 池子中代幣最少占比（防止項目方虛假流動性）
 MIN_POOL_TOKEN_RATIO = 0.01  # 1%
